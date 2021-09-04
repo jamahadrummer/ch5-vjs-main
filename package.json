@@ -1,0 +1,27 @@
+{
+  "name": "ch5-vjs-main",
+  "version": "1.0.0",
+  "description": "",
+  "main": "main.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "run" : "parcel index.html"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jamahadrummer/ch5-vjs-main.git"
+  },
+  "author": "Daniel Jama",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/jamahadrummer/ch5-vjs-main/issues"
+  },
+  "homepage": "https://github.com/jamahadrummer/ch5-vjs-main#readme",
+  "devDependencies": {
+    "@crestron/ch5-utilities-cli": "^0.1.52",
+    "parcel": "^2.0.0-rc.0"
+  },
+  "dependencies": {
+    "@crestron/ch5-crcomlib": "^1.1.2"
+  }
+}
