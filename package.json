@@ -2,10 +2,11 @@
   "name": "ch5-vjs-main",
   "version": "1.0.0",
   "description": "",
-  "main": "main.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "parcel index.html"
+    "start": "parcel index.html",
+    "build": "parcel build *.html --public-url .",
+    "build:archive": "ch5-cli archive -p ch5_2021_10_27d -d dist -o tsw"
   },
   "repository": {
     "type": "git",
