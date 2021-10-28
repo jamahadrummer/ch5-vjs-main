@@ -6,7 +6,7 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "parcel index.html",
     "build": "parcel build *.html --public-url .",
-    "build:archive": "ch5-cli archive -p ch5_2021_10_27d -d dist -o tsw"
+    "build:archive": "ch5-cli archive -p ch5_2021_10_27f -d dist -o tsw"
   },
   "repository": {
     "type": "git",
@@ -20,6 +20,7 @@
   "homepage": "https://github.com/jamahadrummer/ch5-vjs-main#readme",
   "devDependencies": {
     "@crestron/ch5-utilities-cli": "^0.1.52",
+    "eslint": "^8.1.0",
     "parcel": "^2.0.0"
   },
   "dependencies": {
