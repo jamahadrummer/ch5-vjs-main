@@ -1,0 +1,9 @@
+body {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-content: space-around;
+    background-color: black;
+    color: white;
+    gap: 20px;
+}
