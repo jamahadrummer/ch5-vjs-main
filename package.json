@@ -6,7 +6,7 @@
 	"scripts": {
 		"test": "echo \"Error: no test specified\" && exit 1",
 		"build": "npx webpack --config webpack.config.js",
-		"archive": "ch5-cli archive -p ch5_2021_11_10h -d dist -o tsw"
+		"archive": "ch5-cli archive -p ch5_2021_11_12 -d dist -o tsw"
 	},
 	"repository": {
 		"type": "git",
@@ -22,8 +22,9 @@
 		"@crestron/ch5-utilities-cli": "^0.1.52",
 		"copy-webpack-plugin": "^9.0.1",
 		"eslint": "^8.1.0",
-		"webpack": "^5.63.0",
-		"webpack-cli": "^4.9.1"
+		"webpack": "^5.64.0",
+		"webpack-cli": "^4.9.1",
+		"webpack-dev-server": "^4.4.0"
 	},
 	"dependencies": {
 		"@crestron/ch5-crcomlib": "^1.1.2"

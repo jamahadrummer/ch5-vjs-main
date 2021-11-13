@@ -18,3 +18,13 @@ button {
     align-items: center;
     gap: 20px;
 }
+
+.s1 button {
+	color: white;
+	background-color: black;
+}
+
+.s1-selected button {
+	color: black;
+	background-color: blueviolet;
+}

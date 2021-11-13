@@ -17,7 +17,6 @@
 //     console.log('Skipping WebXPanel since running on touchpanel');
 // }
 
-
 const crComLib = require('../node_modules/@crestron/ch5-crComLib/build_bundles/cjs/cr-com-lib.js');
 
 window.crComLib = crComLib;
@@ -42,6 +41,7 @@ const read3 = document.getElementById('s3');
 const read4 = document.getElementById('s4');
 const read5 = document.getElementById('s5');
 
+
 // function cresInteract(num1) {
 // 	console.log('Button has been Pushed');
 // 	crComLib.publishEvent('b', num1, 'true');
@@ -51,6 +51,19 @@ const read5 = document.getElementById('s5');
 // 	}, 2000);
 // 	console.log(num1, 'Low');
 // };
+
+crComLib.subscribeState('b', '1', (value) => {
+	console.log(`toggle(${id}) selected(${value})`);
+	if (value) {
+		join1.classList.add('s1-selected');
+	}
+	else {
+		join1.classList.remove('s1-selected');
+	}
+});
+
+
+
 
 
 function cresRead(num1, elem) {
