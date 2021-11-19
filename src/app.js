@@ -18,12 +18,9 @@
 // }
 
 
+const crComLib = require('../node_modules/@crestron/ch5-crComLib/build_bundles/cjs/cr-com-lib.js');
 
-
-////////////////////////////////////////////////////////////////////////////////////////////
-////////////////////////////////////////////////////////////////////////////////////////////
-////////////////////////////FROM DISCORD////////////////////////////////////////////////////
-////////////////////////////////////////////////////////////////////////////////////////////
+//Code Block From Crestron Professionals Discord
 // The amd and cjs module types do not create or expose any global objects or functions.   
 // Projects created by advanced JavaScript developers using amd and cjs modules must expose four functions from 
 // the Crestron CH5 communications library to allow the control systems communications to be received by the CH5 library. 
@@ -35,25 +32,24 @@
 // window['bridgeReceiveBooleanFromNative'] = bridgeReceiveBooleanFromNative;
 // window['bridgeReceiveStringFromNative'] = bridgeReceiveStringFromNative;
 // window['bridgeReceiveObjectFromNative'] = bridgeReceiveObjectFromNative;
-////////////////////////////////////////////////////////////////////////////////////////////
-////////////////////////////////////////////////////////////////////////////////////////////
-////////////////////////////////////////////////////////////////////////////////////////////
 
-
-
-const crComLib = require('../node_modules/@crestron/ch5-crComLib/build_bundles/cjs/cr-com-lib.js');
-
+//Necesarry to create a connection with crComLib
 window.crComLib = crComLib;
 window.bridgeReceiveIntegerFromNative = crComLib.bridgeReceiveIntegerFromNative;
 window.bridgeReceiveBooleanFromNative = crComLib.bridgeReceiveBooleanFromNative;
 window.bridgeReceiveStringFromNative = crComLib.bridgeReceiveStringFromNative;
 window.bridgeReceiveObjectFromNative = crComLib.bridgeReceiveObjectFromNative;
 
+// Old import statment attempts
 // // import * as crComLib from '@crestron/ch5-crComLib/build_bundles/cjs/cr-com-lib.js';
 // // import { publishEvent } from '/node_modules/@crestron/ch5-crComLib/build_bundles/cjs/cr-com-lib.js';
 // import { subscribeState } from '@crestron/ch5-crComLib/build_bundles/cjs/cr-com-lib';
 // import { publishEvent } from '@crestron/ch5-crComLib/build_bundles/cjs/cr-com-lib';
 // // const crComLib = require('@crestron/ch5-crComLib')
+
+
+
+//Defined variables for accessing html elements
 const join1 = document.getElementById('j1');
 const join2 = document.getElementById('j2');
 const join3 = document.getElementById('j3');
@@ -70,61 +66,105 @@ const sub3 = document.getElementById('js3');
 const sub4 = document.getElementById('js4');
 const sub5 = document.getElementById('js5');
 
-
-let cresInteract = join => {
-	console.log('Button has been Pushed');
-	crComLib.publishEvent('b', join, 'true');
-	console.log(join, 'High');
-	setTimeout(() => {
-		crComLib.publishEvent('b', join, 'false');
-	}, 2000);
-	console.log(join, 'Low');
-};
-
-crComLib.subscribeState('b', '1', (value) => {
-	console.log(`toggle(${id}) selected(${value})`);
-	if (value) {
-		join1.classList.add('s1-selected');
-	}
-	else {
-		join1.classList.remove('s1-selected');
-	}
-});
+//Non Functioning Function for digital joins
+// let cresInteract = join => {
+// 	console.log('Button has been Pushed');
+// 	crComLib.publishEvent('b', join, 'true');
+// 	console.log(join, 'High');
+// 	setTimeout(() => {
+// 		crComLib.publishEvent('b', join, 'false');
+// 	}, 2000);
+// 	console.log(join, 'Low');
+// };
 
 
 
+//Non Functioning Digital Join Subscriptions
+// crComLib.subscribeState('b', '1', (value) => {
+// 	console.log(`toggle(${id}) selected(${value})`);
+// 	if (value) {
+// 		sub1.classList.add('subscribeActive');
+// 	}
+// 	else {
+// 		sub1.classList.remove('subscribeActive');
+// 	}
+// });
+
+// crComLib.subscribeState('b', '2', (value) => {
+// 	console.log(`toggle(${id}) selected(${value})`);
+// 	if (value) {
+// 		sub1.classList.add('subscribeActive');
+// 	}
+// 	else {
+// 		sub1.classList.remove('subscribeActive');
+// 	}
+// });
+
+// crComLib.subscribeState('b', '3', (value) => {
+// 	console.log(`toggle(${id}) selected(${value})`);
+// 	if (value) {
+// 		sub1.classList.add('subscribeActive');
+// 	}
+// 	else {
+// 		sub1.classList.remove('subscribeActive');
+// 	}
+// });
 
 
+// crComLib.subscribeState('b', '4', (value) => {
+// 	console.log(`toggle(${id}) selected(${value})`);
+// 	if (value) {
+// 		sub4.classList.add('subscribeActive');
+// 	}
+// 	else {
+// 		sub4.classList.remove('subscribeActive');
+// 	}
+// });
+
+// crComLib.subscribeState('b', '5', (value) => {
+// 	console.log(`toggle(${id}) selected(${value})`);
+// 	if (value) {
+// 		sub5.classList.add('subscribeActive');
+// 	}
+// 	else {
+// 		sub5.classList.remove('subscribeActive');
+// 	}
+// });
+
+
+//Working Function for Serial Joins from Control System
 function cresRead(num1, elem) {
 	crComLib.subscribeState('s', num1, (value) =>
 		elem.innerHTML = value);
 };
 
+// Functioning OnClick Function
+// function onClick1(digitalJoin) {
+// 	crComLib.publishEvent('b', digitalJoin, true);
+// 	crComLib.publishEvent('b', digitalJoin, false);
+// }
+// join1.addEventListener('click', onClick1('1'));
+// join2.addEventListener('click', onClick1('2'));
+// join3.addEventListener('click', onClick1('3'));
+// join4.addEventListener('click', onClick1('4'));
+// join5.addEventListener('click', onClick1('5'));
 
-function onClick1(digitalJoin) {
-	crComLib.publishEvent('b', digitalJoin, true);
-	crComLib.publishEvent('b', digitalJoin, false);
+
+//Separate Digital Join Functions
+function digiOne(ev) {
+	crComLib.publishEvent('b', '1', true);
+	crComLib.publishEvent('b', '1', false);
 }
-join1.addEventListener('click', onClick1('1'));
-join2.addEventListener('click', onClick1('2'));
-join3.addEventListener('click', onClick1('3'));
-join4.addEventListener('click', onClick1('4'));
-// join5.addEventListener('click', onClick('5'));
 
-// function digiOne(ev) {
-// 	crComLib.publishEvent('b', '1', true);
-// 	crComLib.publishEvent('b', '1', false);
-// }
+function digiTwo(ev) {
+	crComLib.publishEvent('b', '2', true);
+	crComLib.publishEvent('b', '2', false);
+}
 
-// function digiTwo(ev) {
-// 	crComLib.publishEvent('b', '2', true);
-// 	crComLib.publishEvent('b', '2', false);
-// }
-
-// function digiThree(ev) {
-// 	crComLib.publishEvent('b', '3', true);
-// 	crComLib.publishEvent('b', '3', false);
-// }
+function digiThree(ev) {
+	crComLib.publishEvent('b', '3', true);
+	crComLib.publishEvent('b', '3', false);
+}
 
 function digiFour(ev) {
 	crComLib.publishEvent('b', '4', true);
@@ -136,38 +176,41 @@ function digiFive(ev) {
 	crComLib.publishEvent('b', '5', false);
 }
 
-// join1.addEventListener('click', digiOne);
-// join2.addEventListener('click', digiTwo);
-// join3.addEventListener('click', digiThree);
+//EventListener Declaration for individual digital join functions
+join1.addEventListener('click', digiOne);
+join2.addEventListener('click', digiTwo);
+join3.addEventListener('click', digiThree);
 join4.addEventListener('click', digiFour);
 join5.addEventListener('click', digiFive);
 
-
+//Invokation of serial join function above
 cresRead('1', read1);
 cresRead('2', read2);
 cresRead('1', read3);
 cresRead('4', read4);
 cresRead('5', read5);
 
-join1.addEventListener('click', () => {
-	cresInteract('1');
-	setTimeout(function () {
-	}, 1000);
 
-});
+//NonFunctional EventListener Declaration for unversal digital join function
+// join1.addEventListener('click', () => {
+// 	cresInteract('1');
+// 	setTimeout(function () {
+// 	}, 1000);
 
-join2.addEventListener('click', () => {
-	cresInteract('2');
-	setTimeout(function () {
-	}, 1000);
+// });
 
-});
-join3.addEventListener('click', () => {
-	cresInteract('3');
-	setTimeout(function () {
-	}, 1000);
+// join2.addEventListener('click', () => {
+// 	cresInteract('2');
+// 	setTimeout(function () {
+// 	}, 1000);
 
-});
+// });
+// join3.addEventListener('click', () => {
+// 	cresInteract('3');
+// 	setTimeout(function () {
+// 	}, 1000);
+
+// });
 
 // join4.addEventListener('click', () => {
 // 	cresInteract('4');
@@ -184,8 +227,9 @@ join3.addEventListener('click', () => {
 // });
 
 
-
-
+//////////////////////////////////////////////////////
+//Depreciated Code From Previous Tests Other Projects////////////////
+//////////////////////////////////////////////////////
 // crComLib.subscribeState('s', '1', (value) => {
 //     const elem = document.getElementById('room-name');
 //     elem.innerHTML = value;
