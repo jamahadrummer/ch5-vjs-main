@@ -42,15 +42,15 @@ const read4 = document.getElementById('s4');
 const read5 = document.getElementById('s5');
 
 
-// function cresInteract(num1) {
-// 	console.log('Button has been Pushed');
-// 	crComLib.publishEvent('b', num1, 'true');
-// 	console.log(num1, 'High');
-// 	setTimeout(() => {
-// 		crComLib.publishEvent('b', num1, 'false');
-// 	}, 2000);
-// 	console.log(num1, 'Low');
-// };
+let cresInteract = join => {
+	console.log('Button has been Pushed');
+	crComLib.publishEvent('b', join, 'true');
+	console.log(join, 'High');
+	setTimeout(() => {
+		crComLib.publishEvent('b', join, 'false');
+	}, 2000);
+	console.log(join, 'Low');
+};
 
 crComLib.subscribeState('b', '1', (value) => {
 	console.log(`toggle(${id}) selected(${value})`);
@@ -82,20 +82,20 @@ join3.addEventListener('click', onClick1('3'));
 join4.addEventListener('click', onClick1('4'));
 // join5.addEventListener('click', onClick('5'));
 
-function digiOne(ev) {
-	crComLib.publishEvent('b', '1', true);
-	crComLib.publishEvent('b', '1', false);
-}
+// function digiOne(ev) {
+// 	crComLib.publishEvent('b', '1', true);
+// 	crComLib.publishEvent('b', '1', false);
+// }
 
-function digiTwo(ev) {
-	crComLib.publishEvent('b', '2', true);
-	crComLib.publishEvent('b', '2', false);
-}
+// function digiTwo(ev) {
+// 	crComLib.publishEvent('b', '2', true);
+// 	crComLib.publishEvent('b', '2', false);
+// }
 
-function digiThree(ev) {
-	crComLib.publishEvent('b', '3', true);
-	crComLib.publishEvent('b', '3', false);
-}
+// function digiThree(ev) {
+// 	crComLib.publishEvent('b', '3', true);
+// 	crComLib.publishEvent('b', '3', false);
+// }
 
 function digiFour(ev) {
 	crComLib.publishEvent('b', '4', true);
@@ -120,25 +120,25 @@ cresRead('1', read3);
 cresRead('4', read4);
 cresRead('5', read5);
 
-// join1.addEventListener('click', () => {
-// 	cresInteract('1');
-// 	setTimeout(function () {
-// 	}, 1000);
+join1.addEventListener('click', () => {
+	cresInteract('1');
+	setTimeout(function () {
+	}, 1000);
 
-// });
+});
 
-// join2.addEventListener('click', () => {
-// 	cresInteract('2');
-// 	setTimeout(function () {
-// 	}, 1000);
+join2.addEventListener('click', () => {
+	cresInteract('2');
+	setTimeout(function () {
+	}, 1000);
 
-// });
-// join3.addEventListener('click', () => {
-// 	cresInteract('3');
-// 	setTimeout(function () {
-// 	}, 1000);
+});
+join3.addEventListener('click', () => {
+	cresInteract('3');
+	setTimeout(function () {
+	}, 1000);
 
-// });
+});
 
 // join4.addEventListener('click', () => {
 // 	cresInteract('4');
