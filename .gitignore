@@ -5,13 +5,11 @@
 
 **/guide/
 
-**/.parcel-cache/
-
-.parcel-cache
-
 **/.eslintrc.js/
 
 .eslintrc.js
+
+.server.js
 
 # Logs
 logs
