@@ -17,6 +17,30 @@
 //     console.log('Skipping WebXPanel since running on touchpanel');
 // }
 
+
+
+
+////////////////////////////////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////////////////////////////
+////////////////////////////FROM DISCORD////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////////////////////////////
+// The amd and cjs module types do not create or expose any global objects or functions.   
+// Projects created by advanced JavaScript developers using amd and cjs modules must expose four functions from 
+// the Crestron CH5 communications library to allow the control systems communications to be received by the CH5 library. 
+// As example for cjs projects, the following code should be executed at startup of the project. 
+
+// import { bridgeReceiveIntegerFromNative, bridgeReceiveBooleanFromNative, bridgeReceiveStringFromNative, bridgeReceiveObjectFromNative } 
+//     from '@crestron/ch5-crcomlib/build_bundles/cjs/cr-com-lib';
+// window['bridgeReceiveIntegerFromNative'] = bridgeReceiveIntegerFromNative;
+// window['bridgeReceiveBooleanFromNative'] = bridgeReceiveBooleanFromNative;
+// window['bridgeReceiveStringFromNative'] = bridgeReceiveStringFromNative;
+// window['bridgeReceiveObjectFromNative'] = bridgeReceiveObjectFromNative;
+////////////////////////////////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////////////////////////////
+
+
+
 const crComLib = require('../node_modules/@crestron/ch5-crComLib/build_bundles/cjs/cr-com-lib.js');
 
 window.crComLib = crComLib;
@@ -40,6 +64,11 @@ const read2 = document.getElementById('s2');
 const read3 = document.getElementById('s3');
 const read4 = document.getElementById('s4');
 const read5 = document.getElementById('s5');
+const sub1 = document.getElementById('js1');
+const sub2 = document.getElementById('js2');
+const sub3 = document.getElementById('js3');
+const sub4 = document.getElementById('js4');
+const sub5 = document.getElementById('js5');
 
 
 let cresInteract = join => {
@@ -107,9 +136,9 @@ function digiFive(ev) {
 	crComLib.publishEvent('b', '5', false);
 }
 
-join1.addEventListener('click', digiOne);
-join2.addEventListener('click', digiTwo);
-join3.addEventListener('click', digiThree);
+// join1.addEventListener('click', digiOne);
+// join2.addEventListener('click', digiTwo);
+// join3.addEventListener('click', digiThree);
 join4.addEventListener('click', digiFour);
 join5.addEventListener('click', digiFive);
 
