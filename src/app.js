@@ -80,15 +80,14 @@ const sub5 = document.getElementById('js5');
 
 
 //Non Functioning Digital Join Subscriptions
-// crComLib.subscribeState('b', '1', (value) => {
-// 	console.log(`toggle(${id}) selected(${value})`);
-// 	if (value) {
-// 		sub1.classList.add('subscribeActive');
-// 	}
-// 	else {
-// 		sub1.classList.remove('subscribeActive');
-// 	}
-// });
+crComLib.subscribeState('b', '1', (value) => {
+	if (value) {
+		sub1.classList.add('subscribeActive');
+	}
+	else {
+		sub1.classList.remove('subscribeActive');
+	}
+});
 
 // crComLib.subscribeState('b', '2', (value) => {
 // 	console.log(`toggle(${id}) selected(${value})`);
